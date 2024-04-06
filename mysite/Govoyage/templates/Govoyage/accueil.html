@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Govoyage</title>
+
+    <link rel="stylesheet" href="{% static 'go/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div>logo</div>
+            <div class="search">
+            <label for="site-search">Search the site:</label>
+            <input type="search" id="site-search"/>
+            <button>Search</button>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <table style="width:90%">
+                    <tr>
+                        <th style="width:10%">ID</th>
+                        <th>DESTINATION</th> 
+                        <th style="width: 15%">TIME</th>
+                    </tr>
+                    {% for i in trains %}
+                    <tr>
+                      <td>{{ i.trainID }}</td>
+                      <td> {{ i.to }} </td>
+                      <td> {{ i.time }} </td>
+                      <td><a href="/Govoyage/show/{{ i.trainID }}"> Voir </a></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
+            </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
