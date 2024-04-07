@@ -1,17 +1,43 @@
+{% load static %}
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <title> Afficher </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'go/css/style.css' %}">
 </head>
 <body>
-    <h1> Bienvenue sur le détail d'un film </h1>
-    <p> Voici les informations sur le film que vous avez demandé : </p>
-    <p> {{ to }} </p>
-    <p> {{ time }} </p>
+    <header>
+        <nav>
+            <div>logo</div>
+            <ul>
+                <li><a href="{% url 'index' %}"> Accueil </a></li>
+                <li><a href="{% url 'random' %}">Aléatoire</a></li>
+                <li><input type="search" id="site-search"/></li>
+                <li><button>Search</button></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div style="height : 50px; "></div>
-    <a href="/Govoyage/show/{{ precedent }}"> Précédent </a>
-    <a href="/Govoyage/show/{{ suivant }}"> Suivant </a>
-    <a href="/Govoyage/index/"> Accueil </a>
+    <div>
+        <h1 style="text-align: center; padding-top: 20px;"> Bienvenue </h1>
+        <img style="width: 100vw;" src="{% static 'go/img/AdobeStock_276554988.jpeg'%}" alt="line">
+    </div>
+
+    <section id="intro">
+        <div class="row" style="gap: 1em;">
+        <p> Voici les informations sur le TrainN° {{ trainNb }} : </p>
+        <p>Destination : {{ to }} </p>
+        <p>Depart à : {{ time }} </p>
+            <p>Voie N° {{ voie }}</p>
+        <div class="lien">
+        <a href="/Govoyage/show/{{ precedent }}"> Précédent </a>
+        <a href="/Govoyage/show/{{ suivant }}"> Suivant </a>
+      </div>
+    </div>
+    </section>
 </body>
 </html>
+

@@ -8,32 +8,35 @@
 
     <link rel="stylesheet" href="{% static 'go/css/style.css' %}">
 </head>
-<body>
+<body id="home">
     <header>
         <nav>
             <div>logo</div>
-            <div class="search">
-            <label for="site-search">Search the site:</label>
-            <input type="search" id="site-search"/>
-            <button>Search</button>
-            </div>
+            <ul>
+                <li><a href="{% url 'index' %}"> Accueil </a></li>
+                <li><a href="{% url 'random' %}">Aléatoire</a></li>
+                <li><input type="search" id="site-search"/></li>
+                <li><button>Search</button></li>
+            </ul>
         </nav>
     </header>
 
-    <section>
+    <section id="info">
         <div class="container">
             <div class="row">
                 <table style="width:90%">
                     <tr>
-                        <th style="width:10%">ID</th>
-                        <th>DESTINATION</th> 
-                        <th style="width: 15%">TIME</th>
+                        <th style="width:10%">TrainN°</th>
+                        <th>Destination</th> 
+                        <th style="width: 15%">Heure</th>
+                        <th style="width: 15%">Voie</th>
                     </tr>
                     {% for i in trains %}
                     <tr>
                       <td>{{ i.trainID }}</td>
                       <td> {{ i.to }} </td>
                       <td> {{ i.time }} </td>
+                      <td> {{ i.voie }} </td>
                       <td><a href="/Govoyage/show/{{ i.trainID }}"> Voir </a></td>
                     </tr>
                     {% endfor %}

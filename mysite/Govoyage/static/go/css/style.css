@@ -1,8 +1,10 @@
 * {
     margin: 0;
+    text-decoration: none;
+    list-style: none;
 }
 
-body {
+#home {
     background-image: url(../img/chris-yang-H73k0IUQbn0-unsplash.jpg);
     background-size: cover;
     background-position: center;
@@ -10,7 +12,8 @@ body {
 }
 
 header {
-    background-color: aquamarine;
+    background-color: rgba(0, 0, 0, 0.865);
+    color: white;
 }
 
 nav {
@@ -19,8 +22,15 @@ nav {
     justify-content: space-between;
 }
 
+ul {
+    display: flex;
+}
 
-section {
+li {
+    padding: 5px;
+}
+
+#info {
     padding-top: 90px;
 }
 
@@ -42,4 +52,4 @@ table, th, td {
     border-collapse: collapse;
     text-align: center;
     padding: 10px;
-  }
+}
