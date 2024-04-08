@@ -5,7 +5,7 @@
 }
 
 #home {
-    background-image: url(../img/chris-yang-H73k0IUQbn0-unsplash.jpg);
+    background-image: url(../img/pexels-dmitry-alexandrovich-1771670.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -13,7 +13,6 @@
 
 header {
     background-color: rgba(0, 0, 0, 0.865);
-    color: white;
 }
 
 nav {
@@ -35,7 +34,6 @@ li {
 }
 
 .container{
-    background-color: bisque;
     height: 300px;
 }
 
@@ -48,8 +46,11 @@ li {
 }
 
 table, th, td {
-    border:1px solid black;
+    border:3px solid black;
     border-collapse: collapse;
     text-align: center;
+    backdrop-filter: blur(3px);
     padding: 10px;
+    color: white;
+    font-size: 1.1rem;
 }
