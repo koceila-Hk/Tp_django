@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from Govoyage.models import Train
 import random
@@ -24,6 +24,21 @@ def show(request, id_train):
 def random_train(request):
     allTrains = list(Train.objects.all())
     randomLine = random.choice(allTrains)
-    return redirect('show', id_train=randomLine.trainID)
+    return redirect('show', randomLine.trainID)
+
+
+def search_train(request):
+    if request.method == "GET":
+        train_id = request.GET.get('train_id')
+        if train_id:
+            line = get_object_or_404(Train, trainID = train_id)
+            return render(request, 'Govoyage/detail.html', {
+                'trainNb': line.trainID,
+                'to': line.to,
+                'time': line.time,
+                'voie': line.voie,
+                'precedent': int(line.trainID) - 1,
+                'suivant': int(line.trainID) + 1,
+            })
 
 

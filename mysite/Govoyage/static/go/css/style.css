@@ -4,6 +4,10 @@
     list-style: none;
 }
 
+p {
+    font-size: 1.1rem;
+}
+
 #home {
     background-image: url(../img/pexels-dmitry-alexandrovich-1771670.jpg);
     background-size: cover;
@@ -29,12 +33,18 @@ li {
     padding: 5px;
 }
 
-#info {
-    padding-top: 90px;
+a {
+    color: #007bff;
 }
 
-.container{
-    height: 300px;
+button {
+    background-color: #000080;
+    color:white;
+    cursor: pointer;
+}
+
+#info {
+    padding-top: 90px;
 }
 
 .row {
@@ -46,7 +56,7 @@ li {
 }
 
 table, th, td {
-    border:3px solid black;
+    border:4px groove black;
     border-collapse: collapse;
     text-align: center;
     backdrop-filter: blur(3px);

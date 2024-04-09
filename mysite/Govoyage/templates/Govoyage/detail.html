@@ -11,18 +11,20 @@
 <body>
     <header>
         <nav>
-            <div>logo</div>
+            <div><a style="font-size: 1.4rem; font-family: Verdana, Geneva, Tahoma, sans-serif; color: #C0C0C0;" href="{% url 'index' %}">Govoyage</a></div>
             <ul>
                 <li><a href="{% url 'index' %}"> Accueil </a></li>
                 <li><a href="{% url 'random' %}">Aléatoire</a></li>
-                <li><input type="search" id="site-search"/></li>
-                <li><button>Search</button></li>
+                <form action="{% url 'search_train' %}" method="GET">
+                    <input type="search" name="train_id" id="site-search"/>
+                    <button type="submit">Search</button>
+                </form>
             </ul>
         </nav>
     </header>
 
     <div>
-        <h1 style="text-align: center; padding-top: 20px;"> Bienvenue </h1>
+        <h1 style="text-align: center; padding-top: 20px;"> Govoyage line </h1>
         <img style="width: 100vw;" src="{% static 'go/img/AdobeStock_276554988.jpeg'%}" alt="line">
     </div>
 
@@ -31,10 +33,10 @@
         <p> Voici les informations sur le TrainN° {{ trainNb }} : </p>
         <p>Destination : {{ to }} </p>
         <p>Depart à : {{ time }} </p>
-            <p>Voie N° {{ voie }}</p>
-        <div class="lien">
+        <p>Voie N° <span style="background-color:#C0C0C0; padding: 5px; border-radius: 5px;">{{ voie }}</span></p>
+        <div class="lien" style="width: 40%; display: flex; justify-content: space-between;font-size: 1.2rem;">
         <a href="/Govoyage/show/{{ precedent }}"> Précédent </a>
-        <a href="/Govoyage/show/{{ suivant }}"> Suivant </a>
+        <a href="/Govoyage/show/{{ suivant }}"> Suivant </a> 
       </div>
     </div>
     </section>

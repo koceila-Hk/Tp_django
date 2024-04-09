@@ -11,12 +11,14 @@
 <body id="home">
     <header>
         <nav>
-            <div>logo</div>
+            <div ><a style="font-size: 1.4rem; font-family: Verdana, Geneva, Tahoma, sans-serif; color: #C0C0C0;" href="{% url 'index' %}">Govoyage</a></div>
             <ul>
                 <li><a href="{% url 'index' %}"> Accueil </a></li>
                 <li><a href="{% url 'random' %}">Aléatoire</a></li>
-                <li><input type="search" id="site-search"/></li>
-                <li><button>Search</button></li>
+                <form action="{% url 'search_train' %}" method="GET">
+                    <input type="search" name="train_id" id="site-search"/>
+                    <button type="submit">Search</button>
+                </form>
             </ul>
         </nav>
     </header>
@@ -25,8 +27,8 @@
         <div class="container">
             <div class="row">
                 <table style="width:75%">
-                    <tr>
-                        <th style="width:10%">TrainN°</th>
+                    <tr style="background-color: #333333;">
+                        <th style="width:5%">TrainN°</th>
                         <th>Destination</th> 
                         <th style="width: 15%">Heure</th>
                         <th style="width: 10%">Voie</th>
@@ -36,7 +38,7 @@
                       <td>{{ i.trainID }}</td>
                       <td> {{ i.to }} </td>
                       <td> {{ i.time }} </td>
-                      <td> {{ i.voie }} </td>
+                      <td><span style="background-color:#C0C0C0; padding: 5px; border-radius: 5px; color: black;">{{ i.voie }}</span></td>
                       <td><a href="/Govoyage/show/{{ i.trainID }}"> Voir </a></td>
                     </tr>
                     {% endfor %}
