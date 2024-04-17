@@ -15,6 +15,7 @@
             <ul>
                 <li><a href="{% url 'index' %}"> Accueil </a></li>
                 <li><a href="{% url 'random' %}">Aléatoire</a></li>
+                <li><a href="{% url 'add_train' %}">Ajouter un train</a></li>
                 <form action="{% url 'search_train' %}" method="GET">
                     <input type="search" name="train_id" id="site-search"/>
                     <button type="submit">Search</button>

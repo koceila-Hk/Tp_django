@@ -22,4 +22,5 @@ urlpatterns = [
     path('show/<id_train>', views.show, name="show"),
     path('random/', views.random_train, name="random"),
     path('search/', views.search_train, name='search_train'),
+    path('add_train/', views.add_train, name='add_train'),
 ]
