@@ -44,17 +44,14 @@ def search_train(request):
 
 def add_train(request):
     if request.method == "POST":
-        # Récupération des données du formulaire
         train_id = request.POST.get('train_id')
         to = request.POST.get('to')
         time = request.POST.get('time')
         voie = request.POST.get('voie')
         
-        # Création d'une nouvelle instance de Train et enregistrement dans la base de données
         new_train = Train.objects.create(trainID=train_id, to=to, time=time, voie=voie)
         new_train.save()
         
-        # Redirection vers la page d'accueil
         return redirect('index') 
     else:
         return render(request, 'Govoyage/add_train.html')
