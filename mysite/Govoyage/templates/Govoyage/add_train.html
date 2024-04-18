@@ -30,13 +30,13 @@
         <form method="POST">
             {% csrf_token %}
             <label for="train_id">Numéro du train:</label><br>
-            <input type="text"  name="train_id"><br>
+            <input type="text" name="train_id"><br>
             <label for="to">Destination:</label><br>
             <input type="text" name="to"><br>
             <label for="time">Heure:</label><br>
-            <input type="text"  name="time"><br>
+            <input type="text" name="time"><br>
             <label for="voie">Voie:</label><br>
-            <input type="text" id="voie" name="voie"><br><br>
+            <input type="text" name="voie"><br><br>
             <button type="submit" style="padding: 3px;">Ajouter</button>
         </form>
     </section>
