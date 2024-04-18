@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from Govoyage.models import Train
 import random
-from .forms import TrainForm
 
 # Create your views here.
 def index(request):
@@ -45,10 +44,17 @@ def search_train(request):
 
 def add_train(request):
     if request.method == "POST":
-        form = TrainForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('index') 
+        # Récupération des données du formulaire
+        train_id = request.POST.get('train_id')
+        to = request.POST.get('to')
+        time = request.POST.get('time')
+        voie = request.POST.get('voie')
+        
+        # Création d'une nouvelle instance de Train et enregistrement dans la base de données
+        new_train = Train.objects.create(trainID=train_id, to=to, time=time, voie=voie)
+        new_train.save()
+        
+        # Redirection vers la page d'accueil
+        return redirect('index') 
     else:
-        form = TrainForm()
-    return render(request, 'Govoyage/add_train.html', {'form': form})
+        return render(request, 'Govoyage/add_train.html')

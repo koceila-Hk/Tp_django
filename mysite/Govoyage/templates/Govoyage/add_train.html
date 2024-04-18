@@ -1,23 +1,45 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un train - Govoyage</title>
+    <title>Ajouter un train</title>
+
+    <link rel="stylesheet" href="{% static 'go/css/style.css' %}">
+
 </head>
 <body>
-    <h1>Ajouter un train</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <label for="train_id">Numéro du train:</label><br>
-        <input type="text" id="train_id" name="train_id"><br>
-        <label for="destination">Destination:</label><br>
-        <input type="text" id="destination" name="destination"><br>
-        <label for="heure">Heure:</label><br>
-        <input type="text" id="heure" name="heure"><br>
-        <label for="voie">Voie:</label><br>
-        <input type="text" id="voie" name="voie"><br><br>
-        <input type="submit" value="Ajouter">
-    </form>
+    <header>
+        <nav>
+            <div ><a style="font-size: 1.4rem; font-family: Verdana, Geneva, Tahoma, sans-serif; color: #C0C0C0;" href="{% url 'index' %}">Govoyage</a></div>
+            <ul>
+                <li><a href="{% url 'index' %}"> Accueil </a></li>
+                <li><a href="{% url 'random' %}">Aléatoire</a></li>
+                <li><a href="{% url 'add_train' %}">Ajouter un train</a></li>
+                <form action="{% url 'search_train' %}" method="GET">
+                    <input type="search" name="train_id" id="site-search"/>
+                    <button type="submit">Rechercher</button>
+                </form>
+            </ul>
+        </nav>
+    </header>
+
+    <section style="text-align: center;">
+        <h1>Ajouter un train</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="train_id">Numéro du train:</label><br>
+            <input type="text"  name="train_id"><br>
+            <label for="to">Destination:</label><br>
+            <input type="text" name="to"><br>
+            <label for="time">Heure:</label><br>
+            <input type="text"  name="time"><br>
+            <label for="voie">Voie:</label><br>
+            <input type="text" id="voie" name="voie"><br><br>
+            <button type="submit" style="padding: 3px;">Ajouter</button>
+        </form>
+    </section>
+
 </body>
 </html>
